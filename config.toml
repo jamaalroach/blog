@@ -1,0 +1,23 @@
+# baseURL = "localhost:1313"
+baseURL = http://pengnote.netlify.com/
+languageCode = "ja"
+title = "PengNote"
+copyright = "&copy; 2017 PengNote"
+
+googleAnalytics = "UA-53106421-1"
+uglyURLs = true
+
+[Params]
+    subtitle = "勉強した事や行った場所の感想を書くブログ"
+
+[Author]
+    # Social accounts. Link to these accounts are displayed in the header and
+    # footer.
+    name = "Daisuke Konishi"
+    twitter = "skd_nw"
+    github = "d-kusk"
+
+[[menu.main]]
+    name = "About"
+    url = "/page/about/"
+    weight = 3
