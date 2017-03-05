@@ -1,5 +1,5 @@
 # baseURL = "localhost:1313"
-baseURL = http://pengnote.netlify.com/
+baseURL = 'http://pengnote.netlify.com/'
 languageCode = "ja"
 title = "PengNote"
 copyright = "&copy; 2017 PengNote"
