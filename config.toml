@@ -15,7 +15,7 @@ uglyURLs = true
     # footer.
     name = "Daisuke Konishi"
     twitter = "skd_nw"
-    github = "d-kusk"
+    # github = "d-kusk"
 
 [[menu.main]]
     name = "About"
