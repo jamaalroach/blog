@@ -4,7 +4,6 @@ languageCode = "ja"
 title = "PengNote"
 copyright = "&copy; 2017 PengNote"
 
-# googleAnalytics = "UA-53106421-1"
 uglyURLs = true
 
 [Params]
