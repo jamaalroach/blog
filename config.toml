@@ -1,5 +1,5 @@
 # baseURL = "localhost:1313"
-baseURL = 'http://peng-note.netlify.com/'
+baseURL = 'https://blog.daisukekonishi.com/'
 languageCode = "ja"
 title = "PengNote"
 copyright = "&copy; 2017 PengNote"
