@@ -1,10 +1,10 @@
 # baseURL = "localhost:1313"
-baseURL = 'http://pengnote.netlify.com/'
+baseURL = 'http://peng-note.netlify.com/'
 languageCode = "ja"
 title = "PengNote"
 copyright = "&copy; 2017 PengNote"
 
-googleAnalytics = "UA-53106421-1"
+# googleAnalytics = "UA-53106421-1"
 uglyURLs = true
 
 [Params]
