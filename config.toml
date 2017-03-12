@@ -9,6 +9,8 @@ uglyURLs = true
 
 [Params]
     subtitle = "勉強した事や行った場所の感想を書くブログ"
+    description = "勉強した事や行った場所の感想を書くブログ"
+    localeOgp = "ja_JP"
 
 [Author]
     # Social accounts. Link to these accounts are displayed in the header and
