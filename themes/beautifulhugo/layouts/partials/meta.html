@@ -33,17 +33,6 @@
 {{ end }}
 {{ end }}
 <!--
-記事にアイキャッチ画像がある場合はそれをOGP:imageに指定する。
-存在しない場合はサイトデフォルトの画像を指定する。
--->
-{{ if and (.Params.image) (ne .Params.image "") }}
-<meta property="og:image" content="{{ .Params.image | absURL }}">
-<meta property="twitter:image" content="{{ .Params.image | absURL }}">
-{{ else }}
-<meta property="og:image" content="{{ .Site.Params.ogpimage | absURL }}">
-<meta property="twitter:image" content="{{ .Site.Params.ogpimage | absURL }}">
-{{ end }}
-<!--
 記事ページはog:typeをarticleにする。公開日時、タグもキーワードとして出力
 -->
 {{ if .IsPage }}
