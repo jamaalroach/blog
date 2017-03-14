@@ -20,6 +20,8 @@
         {{ end }}
       </ul>
 
+      {{ partial "related.html" . }}
+
       {{ if .Site.DisqusShortname }}
       <div class="disqus-comments">
         {{ template "_internal/disqus.html" . }}
