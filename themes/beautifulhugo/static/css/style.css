@@ -1,0 +1,76 @@
+/**
+ * シェアボタン用のスタイル
+ */
+.share-btns {
+  margin-top: 15px;
+}
+
+.content-footer__sns-list {
+  display: table;
+  width: 100%;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.content-footer__sns-item {
+  display: table-cell;
+  width: 24%;
+  vertical-align: middle;
+}
+
+.content-footer__sns-item + .content-footer__sns-item {
+  padding-left: 1%;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: #000;
+  -ms-transition: opacity 0.4s ease 0s;
+  -webkit-transition: opacity 0.4s ease 0s;
+  transition: opacity 0.4s ease 0s;
+  opacity: 1;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.button__link {
+  display: block;
+  padding: 14px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.button__link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.button--sns--tw {
+  background-color: #55acee;
+}
+
+.button--sns--fb {
+  background-color: #315096;
+}
+
+.button--sns--hb {
+  background-color: #008fde;
+}
+
+.icn,
+.fa {
+  margin-right: 0.4em;
+}
+
+.icn--hatena:before {
+    content: "B!";
+    font-family: Verdana;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.button--sns--po {
+  background-color: #ef4056;
+}
