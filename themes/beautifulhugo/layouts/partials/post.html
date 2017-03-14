@@ -5,6 +5,8 @@
           {{ .Content }}
       </article>
 
+      {{ partial "share.html" . }}
+
       <ul class="pager blog-pager">
         {{ if .PrevInSection }}
         <li class="previous">
