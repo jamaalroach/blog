@@ -13,11 +13,20 @@ author = "Daisuke Konishi"
 スライドは<a href="https://speakerdeck.com/dkonishi/wordpressnielasticsearchwolian-xi-sitarapu-falsejian-suo-gajia-su-sitahua">SpeakerDeck</a>であげてます。
 
 ## はじめに
-もともとElasticsearchを触っていたわけでも無いし、普段から検索周りのものを作ってるってわけではなかったんですが、岡本さんが登壇するとき結構な割合では前を聞いていて、ちょっと気になるなーと思っていたんです。
+もともとElasticsearchを触っていたわけでも無いし、普段から検索周りのものを作ってるってわけではなかったんですが、岡本さんが登壇するとき結構な割合で名前を聞いていて、ちょっと気になるなーと思っていました。
+ある日こんな感じのツイートがきたのでLikeしたら登壇するところまでいきました。ノリって怖いｗ
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">「サービス連携祭り」とかいってWordPressと他のサービスを組み合わせる話ばっかりするWordBenchとかやってみようかな。 <a href="https://twitter.com/hashtag/fb?src=hash">#fb</a><br>kintoneとかMauticとかElasticsearchとか</p>&mdash; hidetaka okamoto (@motchi0214) <a href="https://twitter.com/motchi0214/status/789839230285459456">2016年10月22日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="ja"><p lang="ja" dir="ltr">なんかリアクションしてくれる人いたから、1月か2月にやります。</p>&mdash; hidetaka okamoto (@motchi0214) <a href="https://twitter.com/motchi0214/status/789840451368955905">2016年10月22日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="ja"><p lang="ja" dir="ltr">とりあえず <a href="https://twitter.com/misumi_takuma">@misumi_takuma</a> さんと <a href="https://twitter.com/skd_nw">@skd_nw</a> さんなんかやりません？</p>&mdash; hidetaka okamoto (@motchi0214) <a href="https://twitter.com/motchi0214/status/789841524083216386">2016年10月22日</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Elasticsearchを調べるところから
-<a href="https://www.elastic.co/jp/products/elasticsearch">Elasticsearchのサイト</a>を見たり、いくつかのサイトを見ていると、Elastic社の出しているサービス郡の1つで、**オープンソースの分散型RESTful検索/分析エンジン**というのが分かりました。
+<a href="https://www.elastic.co/jp/products/elasticsearch">Elasticsearchのサイト</a>を見たりいくつかのサイトを見ていると、Elastic社の出しているサービス郡の1つで、**オープンソースの分散型RESTful検索/分析エンジン**というのが分かりました。
 
 他にも、以下の特徴が目に止まりました。
 
@@ -25,7 +34,7 @@ author = "Daisuke Konishi"
 * 検索が早くて精度が高い
 * JSONみたいな感じでデータを扱える
 * 位置情報なんかのデータも扱える
-* Kiberaという同社開発のツールを使うことでElasticsearchで扱っているデータを可視化できる
+* <a href="https://www.elastic.co/jp/products/kibana" target="_blank">Kibana</a>という同社開発のツールを使うことでElasticsearchで扱っているデータを可視化できる
 
 GithubのリポジトリやDockerのコンテナの検索なんかで使われてるみたいです。
 
@@ -33,22 +42,21 @@ GithubのリポジトリやDockerのコンテナの検索なんかで使われ�
 ## WordPressと連携させる
 
 ### そもそもなぜ連携？
-そもそもなんでWordPressと連携させるのか、検索ってもともとあるじゃんと思っていたのですが、どうやらWordPressの検索がLikeしか対応していないらしく…。
+そもそもなんでWordPressと連携させるのか、検索ってもともとあるじゃんと思っていたのですが、どうやら**WordPressの検索がLikeしか対応していない**らしく…。
 
 Like検索というのが、
 
 > 検索条件が完全一致しない対象を、一定のルールのもとで抽出する検索方法のこと
 > - weblio
 
-結構曖昧な結果になっちゃうみたいです。
-
+結構曖昧な結果になっちゃうみたいです。  
 なので、Like検索だと
 
 * あんまり精度が良くない
 * DBのインデックスが使えないからDBをフルスキャンするため時間がかかり、データ数によっては負荷がすごい
 * 条件幾つか指定してAND検索したいときに対応できない
 
-のでElasticsearchを連携させて、検索はそっちでやっちゃおうという感じです。
+なのでElasticsearchを連携させて、検索はそっちでやっちゃおうという感じです。
 
 
 ### Amazon Elasticsearch Serviceを使って連携させる
