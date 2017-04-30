@@ -12,6 +12,9 @@ hrefTargetBlank = true
     description = "勉強した事や行った場所の感想を書くブログ"
     localeOgp = "ja_JP"
 
+[Indexes]
+tag             = "tags"
+
 [Author]
     # Social accounts. Link to these accounts are displayed in the header and
     # footer.
