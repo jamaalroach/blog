@@ -1,9 +1,9 @@
 +++
 date = "2017-04-02T11:23:29+09:00"
-tags = ["WordPress","ElasticSearch"]
+tags = ["WordPress","Elasticsearch"]
 categories = ["クリエイティブ"]
-description = "2017年1月のBench京都でプラグインを使ってWordPressとElasticSearchを連携させる話をしてきた"
-title = "WordBench京都でWordPressとElasticSearchを連携させる話をしてきた"
+description = "2017年1月のBench京都でプラグインを使ってWordPressとElasticsearchを連携させる話をしてきた"
+title = "WordBench京都でWordPressとElasticsearchを連携させる話をしてきた"
 author = "Daisuke Konishi"
 
 +++
