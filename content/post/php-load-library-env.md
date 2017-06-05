@@ -1,5 +1,5 @@
 +++
-title = "PHPでAPIを叩くときの環境変数の読みについて備忘録"
+title = "PHPでAPIを叩くときの環境変数の読み込みについて備忘録"
 author = "Daisuke Konishi"
 date = "2017-05-26T13:20:15+09:00"
 tags = ["PHP", "API"]
