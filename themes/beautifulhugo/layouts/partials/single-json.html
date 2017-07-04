@@ -1,0 +1,22 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "Article",
+    "@id": "{{ .Permalink }}"
+  },
+  "headline": "{{ .Title }}",
+  {{if .Params.categories }}"genre": "{{ range .Params.categories }}{{ . }}{{ end }}",{{ end }},
+  {{if .Params.tags }}"keywords": "{{ range .Params.tags }}{{ . }}{{ end }}",{{ end }},
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Author.name }}"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Author.name }}"
+  },
+  "description": "{{ .Description }}"
+}
+</script>
