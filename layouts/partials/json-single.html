@@ -4,7 +4,7 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": {
     "@type": "Article",
-    "@id": "{{ .Permalink }}"
+    "@id": {{ .Permalink | jsonify }}
   },
   "headline": "{{ .Title }}",
   {{if .Params.categories }}"genre": "{{ range .Params.categories }}{{ . }}{{ end }}",{{ end }},
