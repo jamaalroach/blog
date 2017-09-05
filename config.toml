@@ -24,7 +24,7 @@ googleAnalytics = "UA-53106421-1"
 
 [[menu.global]]
     name = "行ったとこ"
-    url = "/tags/行ったとこ/"
+    url = "/categories/行ったとこ/"
 
 [[menu.footer]]
     name = "About"
