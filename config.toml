@@ -1,28 +1,36 @@
-# baseURL = "localhost:1313"
-baseURL = 'https://blog.daisukekonishi.com/'
+baseurl = "https://blog.daisukekonishi.com/"
 languageCode = "ja"
 title = "PengNote"
-copyright = "&copy; 2017 PengNote"
+copyright = "(c) 2017 PengNote"
+canonifyurls = true
+paginate = 3
 
 uglyURLs = true
 hrefTargetBlank = true
+googleAnalytics = "UA-53106421-1"
 
-[Params]
-    subtitle = "勉強した事や行った場所の感想を書くブログ"
-    description = "勉強した事や行った場所の感想を書くブログ"
-    localeOgp = "ja_JP"
+[params]
+  description = "勉強した事や行った場所の感想を書くブログ"
+  author = "Daisuke KONISHI"
 
-[Indexes]
-tag             = "tags"
+[taxonomies]
+  category = "categories"
+  tag = "tags"
 
-[Author]
-    # Social accounts. Link to these accounts are displayed in the header and
-    # footer.
-    name = "Daisuke KONISHI"
-    twitter = "skd_nw"
-    # github = "d-kusk"
+[[menu.global]]
+    name = "クリエイティブ"
+    url = "/categories/クリエイティブ/"
 
-[[menu.main]]
+[[menu.global]]
+    name = "行ったとこ"
+    url = "/tags/行ったとこ/"
+
+[[menu.footer]]
     name = "About"
     url = "/page/about/"
-    weight = 3
+
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"

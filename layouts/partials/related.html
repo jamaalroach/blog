@@ -1,6 +1,6 @@
 {{ if .Params.tags }}
 <nav class="related-articles js-related-articles">
-  <h2 class="content-footer__text">関連記事</h2>
+  <h2 class="related-articles__text">関連記事</h2>
   <ul class="related-articles__links">
    {{ $currentTitle := .Title }}
     {{ $page_link := .RelPermalink }}
@@ -9,7 +9,7 @@
     {{ $page := . }}
     {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
     {{ if and $has_common_tags (ne $page_link $page.RelPermalink) }}
-    <li class="related-articles__item js-items">
+    <li class="related-articles__links__item js-items">
       <article class="related-article">
         <p class="related-article__stock">{{ $page.Date.Format "2006.01.02." }}</p>
         <p class="related-article__title">
