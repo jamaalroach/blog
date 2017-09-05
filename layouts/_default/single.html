@@ -33,8 +33,6 @@
 
       {{ partial "adsense.html" . }}
 
-      {{ partial "related.html" . }}
-
       <div class="pagenation">
         <ul class="pagenation-list">
           {{ if .PrevInSection }}
@@ -49,6 +47,8 @@
           {{ end }}
         </ul>
       </div>
+
+      {{ partial "related.html" . }}
     </footer>
   </article><!-- /.post -->
 
