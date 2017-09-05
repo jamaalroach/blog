@@ -23,15 +23,15 @@
           {{ end }}
         </div>
       </div>
-      {{ partial "adsense.html" . }}
     </header>
     <div class="post-body">
       {{ .Content }}
     </div>
     <footer class="post-footer">
-      {{ partial "share.html" . }}
-
-      {{ partial "adsense.html" . }}
+      <!-- /.social -->
+      <div class="share">
+        {{ partial "share.html" }}
+      </div>
 
       <div class="pagenation">
         <ul class="pagenation-list">
@@ -47,8 +47,6 @@
           {{ end }}
         </ul>
       </div>
-
-      {{ partial "related.html" . }}
     </footer>
   </article><!-- /.post -->
 
