@@ -44,3 +44,13 @@
   font-family: "Lato", sans-serif;
   color: #8d8d8d;
 }
+
+
+.post-item .title {
+  line-height: 1.4;
+}
+
+
+.ads {
+  margin: 30px;
+}

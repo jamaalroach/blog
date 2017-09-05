@@ -23,13 +23,14 @@
           {{ end }}
         </div>
       </div>
+      {{ partial "adsense.html" . }}
     </header>
     <div class="post-body">
       {{ .Content }}
     </div>
     <footer class="post-footer">
-      
 
+      {{ partial "adsense.html" . }}
       {{ partial "related.html" . }}
 
       <div class="pagenation">
