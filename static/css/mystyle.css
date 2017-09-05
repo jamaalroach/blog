@@ -46,11 +46,71 @@
 }
 
 
+/**
+ * Post
+ */
 .post-item .title {
   line-height: 1.4;
 }
 
-
+/**
+ * Adsense
+ */
 .ads {
-  margin: 30px;
+  margin: 4% auto;
+}
+
+/**
+ * Share Btn
+ */
+.content-footer__sns-list {
+  text-align: center;
+}
+
+.content-footer__sns-item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.content-footer__sns-item + .content-footer__sns-item {
+  margin-left: 1%;
+}
+
+.content-footer__sns-item .button {
+  padding: 1.2em 1.2em;
+  border-radius: 3px;
+}
+
+.content-footer__sns-item .button .button__link {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.content-footer__sns-item .button .button__link .icn--hatena:before {
+  content: "B!";
+  font-family: Verdana;
+  font-weight: bold;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .content-footer__sns-item .button .button__link span {
+    display: none;
+  }
+}
+
+.button--sns--tw {
+  background-color: #55acee;
+}
+
+.button--sns--fb {
+  background-color: #315096;
+}
+
+.button--sns--hb {
+  background-color: #008fde;
+}
+
+.button--sns--po {
+  background-color: #ef4056;
 }

@@ -29,8 +29,10 @@
       {{ .Content }}
     </div>
     <footer class="post-footer">
+      {{ partial "share.html" . }}
 
       {{ partial "adsense.html" . }}
+
       {{ partial "related.html" . }}
 
       <div class="pagenation">
