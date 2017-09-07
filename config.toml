@@ -23,8 +23,12 @@ googleAnalytics = "UA-53106421-1"
     url = "/categories/クリエイティブ/"
 
 [[menu.global]]
-    name = "行ったとこ"
-    url = "/categories/行ったとこ/"
+    name = "行ってきた"
+    url = "/categories/行ってきた/"
+
+[[menu.global]]
+    name = "雑記"
+    url = "/categories/雑記/"
 
 [[menu.footer]]
     name = "About"
