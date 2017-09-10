@@ -1,6 +1,6 @@
 +++
 title = ""
-date = ""
+data = {{ .Date }}
 draft = true
 tags = [""]
 +++
