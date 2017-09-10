@@ -3,7 +3,7 @@ title = ""
 description = ""
 categories = [""]
 tags = ["", ""]
-date = ""
+date = {{ .Date }}
 author = "Daisuke Konishi"
 +++
 

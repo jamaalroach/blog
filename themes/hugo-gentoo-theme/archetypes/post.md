@@ -1,7 +1,7 @@
 +++
 title = ""
 description = "Thank you for choosing After Dark."
-data = ""
+data = {{ .Date }}
 categories = [""]
 tags = ["", ""]
 draft = true
