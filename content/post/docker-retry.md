@@ -17,6 +17,12 @@ Dockerを触るのは2年ぶりくらいで、その頃はBoot2Dockerがあま�
 ちょくちょく名前を聞いていた、Docker for Macを入れてみました。  
 ダウンロードとインストールは[こちら]((https://store.docker.com/editions/community/docker-ce-desktop-mac))のサイトからいつもアプリを落としてる感じでダウンロードしてインストール作業を進めていくだけです。
 
+<ins>
+追記:
+会社のマシンがEl Capitanだったのですが、インストール後、コマンドの入力で ``Warning: failed to get default registry endpoint from daemon`` といったエラーが出て上手くいかなかったのですが、以下の方法でいけました
+[MacでDockerをインストールした後に必要な作業](https://qiita.com/butada/items/4044c5efd03341c8afef)
+</ins>
+
 バージョンはEdgeとStable(安定版)の2つがあり、最初Edgeを入れてみていたのですが、うまくいかなかったのでStableにしました。その方が今後も安全そうだしね…。
 
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="und" dir="ltr"><a href="https://t.co/345hHeWpn6">pic.twitter.com/345hHeWpn6</a></p>&mdash; こにたん (@skd_nw) <a href="https://twitter.com/skd_nw/status/903471768219688960">2017年9月1日</a></blockquote>
