@@ -63,6 +63,10 @@ $ aws configure
 ## Slack に通知
 幾つかモジュールはあったんだけど、Python の requests モジュールを使った。
 
+また、コード自体はLambdaで関数を作成するときに幾つか雛形が用意されているものを選べるので、そこから組んでいくのが楽だと思う。
+
+![Lambdaの関数の雛形](/images/2017/lambda-slack/lambda-template.png)
+
 ### Lambda 上で pip install ができなかった
 いろんな所で書かれていて、requirements.txt に書いておくと lambda_uploader がうまいことやってくれるって記載もあったんだけど、僕の環境ではうまく行かなかった。
 
