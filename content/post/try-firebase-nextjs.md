@@ -1,5 +1,5 @@
 +++
-title = "Next.jsとFirebaseの構成でチャットシステムを目指した"
+title = "ReactとFirebaseの構成でチャットシステムを目指した"
 description = "前回Next.jsでルーティングを触ったので、今回はそれにFirebaseを組み合わせて昔なつかしのチャットルームを作ることをちょっとだけ目指した"
 categories = ["クリエイティブ"]
 tags = ["React", "Next.js", "Firebase"]
@@ -8,7 +8,7 @@ author = "Daisuke Konishi"
 +++
 
 
-この間チラッと名前が聞こえたので、使うぞーってなっても0からスタートで困るみたいなことにならないようにサンプル作るかと思って触ってみた。
+この間Next.jsの話がチラッと聞こえたので、使うぞーってなっても0からスタートで困るみたいなことにならないようにサンプル作るかと思って触ってみた。
 
 作ったものは一応[ここ](d-kusk/nextChat: try firebase and next.js : https://github.com/d-kusk/nextChat)に。
 
