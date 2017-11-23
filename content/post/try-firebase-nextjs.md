@@ -39,9 +39,9 @@ ES modulesを使う方法で、Firebaseが生成した設定部分を変数宣�
 Firebase: Firebase App named '[DEFAULT]' already exists (app/duplicate-app).
 ```
 
-調べてみると、github のコメントでその話をしている人がいて参考にしました。
+調べてみると、github のコメントでその話をしている人がいたので参考にしました。
 
-[https://github.com/zeit/next.js/issues/1999#issuecomment-326805233](https://github.com/zeit/next.js/issues/1999#issuecomment-326805233)
+[Firebase App named '[DEFAULT]' already exists (app/duplicate-app) - zeit/next.js issue](https://github.com/zeit/next.js/issues/1999#issuecomment-326805233)
 
 参考にした記事だとdatabaseの設定も ``initializeApp()`` の箇所で行っていたんですが、既にAppが定義されていた場合の方が走ったときに変数の辻褄を合わせることができないため削除。必要な箇所で設定する方式に変更しました。今回だとデータの取得や更新をかけている親コンポーネントの箇所です。
 
