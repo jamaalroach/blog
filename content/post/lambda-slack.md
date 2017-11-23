@@ -46,12 +46,11 @@ author = "Daisuke Konishi"
 * lambda-uploader
 * aws cli
 
-lambda-uploader はローカル環境で用意したファイル群のデプロイやモジュールを Lambda 上でインストールするため。
-最終的には以下でデプロイする。
+```
+$ pip install lambda-uploader awscli
+```
 
-```
-$ lambda-uploader
-```
+### AWSで使うユーザーの設定
 
 AWS CLIはどのユーザーとしてアクセスするのかの設定に使いました。
 以下で対話形式で設定。
@@ -60,23 +59,20 @@ AWS CLIはどのユーザーとしてアクセスするのかの設定に使い�
 $ aws configure
 ```
 
-## Slack に通知
+### AWS Lambdaへのデプロイ
+lambda-uploader はローカル環境で用意したファイル群のデプロイやモジュールを Lambda 上でインストールするため。
+最終的には以下でデプロイする。
+
+```
+$ lambda-uploader
+```
+
+## Slack に通知するコードを作成
 幾つかモジュールはあったんだけど、Python の requests モジュールを使った。
 
 また、コード自体はLambdaで関数を作成するときに幾つか雛形が用意されているものを選べるので、そこから組んでいくのが楽だと思う。
 
 ![Lambdaの関数の雛形](/images/2017/lambda-slack/lambda-template.png)
-
-### Lambda 上で pip install ができなかった
-いろんな所で書かれていて、requirements.txt に書いておくと lambda_uploader がうまいことやってくれるって記載もあったんだけど、僕の環境ではうまく行かなかった。
-
-そこで他を調べていると、以下のコマンドが紹介されていて、これを使うといけた。
-
-```
-$ pip install -t requests .
-```
-
-requests モジュールをインストールして、ローカルに展開するみたいな感じ。ディレクトリ構成は汚くなるけど、致し方ない…。
 
 ### 実際に通知するところの処理
 slack に投げる情報を辞書でまとめて、post するという流れ。
@@ -98,6 +94,18 @@ def lambda_handler(event, context):
     except requests.exceptions.RequestException as e:
         logger.error("Request failed: %s", e)
 ```
+
+### 問題: Lambda 上で pip install ができなかった
+いろんな所で書かれていて、requirements.txt に書いておくと lambda_uploader がうまいことやってくれるって記載もあったんだけど、僕の環境ではうまく行かなかった。
+
+そこで他を調べていると、以下のコマンドが紹介されていて、これを使うといけた。
+
+```
+$ pip install -t requests .
+```
+
+requests モジュールをインストールして、ローカルに展開するみたいな感じ。ディレクトリ構成は汚くなるけど、致し方ない…。
+
 
 ## 参考にしたもの
 * [練習を兼ねてAWS LambdaからSlackにPOSTするプログラムを組んだ](https://geeknavi.net/aws/auto-post-to-slack#Slack)
