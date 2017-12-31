@@ -1,7 +1,7 @@
 baseurl = "https://blog.daisukekonishi.com/"
 languageCode = "ja"
 title = "PengNote"
-copyright = "(c) 2017 PengNote"
+copyright = "(c) 2018 PengNote"
 canonifyurls = true
 paginate = 3
 
