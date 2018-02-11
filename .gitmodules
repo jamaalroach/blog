@@ -1,0 +1,3 @@
+[submodule "themes/minimage"]
+	path = themes/minimage
+	url = git@github.com:d-kusk/minimage.git
