@@ -3,4 +3,4 @@
 	url = git@github.com:d-kusk/minimage.git
 [submodule "themes/hugo-gentoo-theme"]
 	path = themes/hugo-gentoo-theme
-	url = git@github.com:d-kusk/hugo-gentoo-theme.git
+	url = https://github.com/d-kusk/hugo-gentoo-theme
