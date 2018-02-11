@@ -1,3 +1,6 @@
 [submodule "themes/minimage"]
 	path = themes/minimage
 	url = git@github.com:d-kusk/minimage.git
+[submodule "themes/hugo-gentoo-theme"]
+	path = themes/hugo-gentoo-theme
+	url = git@github.com:d-kusk/hugo-gentoo-theme.git
