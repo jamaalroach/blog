@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{ partial "adsense.html" . }}
+  
+  {{ $pag := .Paginate (where .Data.Pages "Type" "post") 5 }}
+
+  <div class="p-archive">
+    <div class="c-container">
+      <ul class="c-archive-list">
+      {{ range $pag.Pages }}
+        {{ .Render "li" }}
+      {{ end }}
+      </ul>
+
+      {{ partial "pagenation.html" . }}
+    </div>
+  </div>
+
+  {{ partial "adsense.html" . }}
+
+{{ end }}
