@@ -1,6 +1,5 @@
 {{ define "main" }}
-  {{ partial "adsense.html" . }}
-  
+
   {{ $pag := .Paginate (where .Data.Pages "Type" "post") 5 }}
 
   <div class="p-archive">
