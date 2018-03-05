@@ -4,6 +4,7 @@ date = "2017-08-30T02:58:06+09:00"
 tags = ["Hugo"]
 categories = ["クリエイティブ"]
 description = "Hugoでメニューに表示する内容をconfig.tomlから設定し、それを出力する方法"
+image="/images/common/hugo.jpg"
 title = "Hugoでオリジナルのメニューを設定し出力する方法"
 +++
 

@@ -4,6 +4,7 @@ description = "このブログはHugoで作成していますが、テーマをs
 categories = ["クリエイティブ"]
 tags = ["Hugo", "git"]
 date = 2018-02-12T00:23:51+09:00
+image="/images/common/hugo.jpg"
 author = "Daisuke Konishi"
 +++
 

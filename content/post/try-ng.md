@@ -2,6 +2,7 @@
 title = "Angularでデータバインディングとルーティング周りを触ってみた"
 description = "仕事でAngularを使いそうだったので、少し触ってみた話"
 categories = ["クリエイティブ"]
+image = "images/common/angularjs.jpg"
 tags = ["JavaScript", "Angular"]
 date = 2018-01-29T01:49:48+09:00
 author = "Daisuke Konishi"

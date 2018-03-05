@@ -4,6 +4,7 @@ categories = ["クリエイティブ"]
 description = "Hugoでサイト全体で使われているタグやカテゴリーの一覧のページを作ったのでその覚書"
 title = "Hugoでサイト全体で使われているタグやカテゴリーの一覧のページを作る"
 author = "Daisuke Konishi"
+image="/images/common/hugo.jpg"
 date = "2017-09-04T22:02:32+09:00"
 +++
 

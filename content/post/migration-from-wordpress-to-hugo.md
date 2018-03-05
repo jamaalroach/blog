@@ -3,7 +3,8 @@ date = "2017-03-14T00:12:46+09:00"
 title = "WordPressからHugoに移行しました"
 description = "ブログに使うシステムをWordPressからHugoに移行したので、特にシステムの移行部分とページの生成までの覚書です"
 categories = ["クリエイティブ"]
-tags = ["hugo", "WordPress"]
+tags = ["Hugo", "WordPress"]
+image="images/common/hugo.jpg"
 author = "Daisuke Konishi"
 +++
 

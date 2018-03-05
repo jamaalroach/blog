@@ -1,5 +1,5 @@
 +++
-tags = ["hugo","netlify"]
+tags = ["Hugo","netlify"]
 categories = ["クリエイティブ"]
 description = "hugoで作成したサイトやページをnetlifyに公開する方法です。"
 title = "Hugoで作成したサイトをNetlifyで公開する"

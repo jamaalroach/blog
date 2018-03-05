@@ -1,11 +1,12 @@
 +++
 title = ""
 description = ""
-categories = [""]
+data = {{ .Date }}
+image = ""
 tags = ["", ""]
-date = {{ .Date }}
-author = "Daisuke Konishi"
+draft = true
 +++
+
 
 
 ## はじめに

@@ -4,6 +4,7 @@ description = "Hugoのテーマを初めて自作して、申請し公開する�
 categories = ["クリエイティブ"]
 tags = ["Hugo"]
 date = "2017-09-07T21:20:44+09:00"
+image="/images/common/hugo.jpg"
 author = "Daisuke Konishi"
 +++
 
