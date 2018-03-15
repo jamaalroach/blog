@@ -1,7 +1,7 @@
 +++
 title = "ESLintとPrettierを触って導入してみた"
 description = "ESLintは前から導入していたのですが、最近作っているものに対してLintやFormatをかけてみようと思ったため、ちゃんと使いつつPrettierを入れてFormatをかけてみた"
-data = 2018-03-16T01:52:21+09:00
+date = 2018-03-16T01:52:21+09:00
 image = ""
 categories = ["クリエイティブ"]
 tags = ["ESLint", "Prettier"]
