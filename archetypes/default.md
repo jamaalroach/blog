@@ -1,7 +1,7 @@
 +++
 title = ""
 description = ""
-data = {{ .Date }}
+date = {{ .Date }}
 image = ""
 tags = ["", ""]
 draft = true
