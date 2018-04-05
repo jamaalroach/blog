@@ -38,7 +38,7 @@ author = "Daisuke Konishi"
 用意するファイルは以下
 
 * lambda_function.py  実行する関数
-* lambda.py  lambdaの設定。リージョンやroleの設定など。variablesで環境変数も用意できる
+* lambda.json  lambdaの設定。リージョンやroleの設定など。variablesで環境変数も用意できる
 * (requirements.txt)
 
 その他必要なもの
