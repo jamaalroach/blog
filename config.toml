@@ -5,6 +5,7 @@ copyright = "(c) 2018 PengNote"
 canonifyurls = true
 paginate = 3
 
+uglyurl=true
 googleAnalytics = "UA-53106421-1"
 
 [params]
@@ -17,18 +18,14 @@ googleAnalytics = "UA-53106421-1"
   tag = "tags"
 
 [[menu.global]]
-    name = "クリエイティブ"
-    url = "/categories/クリエイティブ/"
+    name = "カテゴリ"
+    url = "/categories/"
 
 [[menu.global]]
-    name = "行ってきた"
-    url = "/categories/行ってきた/"
+    name = "タグ"
+    url = "/tags/"
 
 [[menu.global]]
-    name = "雑記"
-    url = "/categories/雑記/"
-
-[[menu.footer]]
     name = "About"
     url = "/page/about/"
 
