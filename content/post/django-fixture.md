@@ -5,7 +5,6 @@ date = 2018-07-29T15:47:47+09:00
 image = ""
 categories = "クリエイティブ"
 tags = ["Python", "Django"]
-draft = true
 +++
 
 この間テストを書くときに ``ModelName.objects.create()`` でデータを作っていましたが、後々見つけたfixtureを触ってみたのでそれについて。
