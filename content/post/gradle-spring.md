@@ -3,6 +3,7 @@ title = "Gradleを使って、SpringFramework+Thymeleafの環境を作る"
 description = "依存管理ツールのGradleを使ってSpringFrameworkやThymeleafの環境構築を行ったのでその備忘録"
 date = 2018-05-13T23:22:32+09:00
 image = ""
+categories = ["クリエイティブ"]
 tags = ["Java", "SpringFramework", "Gradle"]
 +++
 
