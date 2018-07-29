@@ -5,7 +5,7 @@ copyright = "(c) 2018 PengNote"
 canonifyurls = true
 paginate = 3
 
-
+uglyURLs = true
 googleAnalytics = "UA-53106421-1"
 
 [params]
