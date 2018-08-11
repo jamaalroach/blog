@@ -1,1 +1,1 @@
-/^.*.html /:splats/ 301
+/^.*/index.html /:splats/ 301
