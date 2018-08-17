@@ -1,1 +1,2 @@
-Access-Control-Allow-Origin = "*"
+/index.xml
+  Access-Control-Allow-Origin: "*"
