@@ -13,7 +13,8 @@ author = "Daisuke Konishi"
 結論から言えばノリです。
 
 これまでデフォルトのシェルは、補完が強くて便利って話を聞いて[zsh](http://www.zsh.org/)を使っていた。
-[prezto](https://github.com/sorin-ionescu/prezto)でテーマを当てたり設定加えて色々書いていたんだけど、カスタマイズを色々いじっていくのがめんどくさいのと、ちょっと重い気がしてた。  
+[prezto](https://github.com/sorin-ionescu/prezto)でテーマを当てたり設定加えて色々書いていたんだけど、カスタマイズを色々いじっていくのがめんどくさいのと、ちょっと重い気がしてた。
+
 そんな中、会社で一緒に働いてる人がfishを使っていて(というか僕以外全員)、ちょっと触ってみたら**補完の感じが好きだった**ので変えてみた。
 
 あと、ちょうど回ってきたこの記事を読んでやってみようと思った。  
@@ -39,7 +40,7 @@ author = "Daisuke Konishi"
 
 ## Macへのfishの導入
 
-fish自体は最初から入ってないのでHomebrewでインストールする。
+bashやzshとは違って、fish自体は最初から入ってないのでHomebrewでインストールする。
 
 ```
 $ brew install fish
