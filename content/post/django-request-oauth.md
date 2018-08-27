@@ -8,7 +8,6 @@ author = "Daisuke Konishi"
 
 +++
 
-また、API叩いてる。  
 これまで何度かPHPでAPI叩いてたんだけど、Pythonやりだしたのでそっちでやる方法調べてた。  
 Twitter APIのアクセストークンなんかは[TwitterのDevelopersサイト](https://dev.twitter.com/index)でアプリ作って取得済み。
 
@@ -18,13 +17,13 @@ Twitter APIのアクセストークンなんかは[TwitterのDevelopersサイト
 ただ、こういった専用のもの使うよりもう少し汎用的なもの使って覚えたほうが勉強になるし使いまわせたりするんじゃないかなーと思って別の方法で試した。
 
 
-## requestsとrequests_oauthlib
+## requestsとrequests_oauthlibで認証のリクエストを送信する
 
 Twitter APIへのリクエスト処理は、 requests というライブラリで行った。名前そのままだし分かりやすい。
 
 [requests/requests: Python HTTP Requests for Humans™ ✨🍰✨ - github] (https://github.com/requests/requests)
 
-また、Twitter APIでの認証に関しては、requests_oauthlib というライブラリで行った。
+また、Twitter APIへの認証に関しては、requests_oauthlib というライブラリで行った。
 
 [requests/requests-oauthlib: OAuthlib support for Python-Requests! - github](https://github.com/requests/requests-oauthlib)
 
@@ -33,8 +32,6 @@ Twitter APIへのリクエスト処理は、 requests というライブラリ�
 ```
 $ pip install requests requests-oauthlib
 ```
-
-使用ライブラリが増えたのはうーんって感じだけどまぁいいかな。
 
 ### 実際に使う
 結構シンプルに書ける。
@@ -69,8 +66,8 @@ requestsの ``.get()`` の後ろに ``.json()`` を付ければレスポンス�
 - [Python: テキストファイルに書き込み – write()、writelines()メソッド]( http://www.yukun.info/blog/2008/09/python-file-write-writelines.html)
 
 
-## クエリストリングを作りたい場合
-辞書と urllib ライブラリの ``parse.urlencode()`` を使うと、PHP ``http_build_query()`` みたいなのができた。
+## おまけ: クエリストリングを作りたい場合
+辞書と urllib ライブラリの ``parse.urlencode()`` を使うと、PHPでいうところの ``http_build_query()`` みたいなのができた。
 
 ```
 import urllib
