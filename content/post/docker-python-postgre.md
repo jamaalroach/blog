@@ -27,9 +27,11 @@ author = "Daisuke Konishi"
 3. docker-composeでまとめて起動できるようにする
 
 ### 1.DockerfileでPython3の環境を構築する設定を作る
-Pythonの環境はDockerfileで作成する。というのも、イメージを落としてきた後で ``requirements.txt`` を読み込むなどの処理をしたいから。  
+Pythonの環境はDockerfileで作成する。というのも、イメージを落としてきた後で ``requirements.txt`` を読み込むなどの処理をしたいから。
+
 ちなみにDockerイメージはDocker Hubにある[Officialイメージ](https://hub.docker.com/_/python/)を使っている。  
-Dockerfileの書き方もそのままにしている。細かいバージョンの指定をした方がいいと思うけど、とりあえず放置されている。このファイルでは、PythonイメージのPullとディレクトリの作成とルートディレクトリ化、pipによるパッケージのインストールを行っている。
+Dockerfileの書き方もそのままにしている。細かいバージョンの指定をした方がいいと思うけど、とりあえず保留。  
+このファイルでは、PythonイメージのPullとディレクトリの作成とルートディレクトリ化、pipによるパッケージのインストールを行っている。
 
 ```
 FROM python:3
@@ -49,7 +51,7 @@ $ docker pull postgres
 ```
 
 ### 3. docker-composeでまとめて起動できるようにする
-docker-compose の設定ファイルはほとんど掲載されているものと同じだけど、永続化の設定を入れている(多分これで出来てるんじゃないかなぁ)
+docker-compose の設定ファイルはほとんど Docker Hub のリポジトリで掲載されているものと同じだけど、追加で PostgreSQL のデータを永続化する設定を入れている(多分これで出来てるんじゃないかなぁ)
 
 ```
 version: '3.1'
@@ -74,22 +76,20 @@ services:
             - ~/docker/postgres:/var/lib/postgresql/data
 ```
 
-Dockerの環境としてはこれで接続できているはずなので、Pythonで接続する設定なんかを書いていけばいい気がする。  
-dbの方で書いた情報をもとにDjangoの設定をして使っている。(USERなんかはあくまでローカル環境ということで設定している)
+Docker の環境としてはこれで接続できているはずなので、Python で接続する設定なんかを書いていけばいい気がする。  
+db の方で書いた environment の情報をもとに Django の設定をして使っている。(POSTGRES_USERなんかはあくまでローカル環境ということでこの値で設定している)
 
-### DjangoでPostgreSQLに接続するなら
-個人的にDjangoを使っているので試しにDjangoに接続するなら。
-
-DjangoでPostgreSQLに接続するときは、データベース名やUSER名なんかはdocker-composeで設定しているものを。Hostはdb、Portが5432を設定すると接続できるはず。
+### ちなみに: DjangoでPostgreSQLに接続するなら
+DjangoでPostgreSQLに接続するときは、1つ前のセクションで書いたように **データベース名やUSER名なんかはdocker-compose の environment で設定しているもの** を入力する。 **Hostはdb、Portが5432** を設定すると接続できた。
 
 モジュールとしては **psycopg2** が必要。インストールから設定なんかの詳しい部分は以下を参考にした。  
 <a href="https://qiita.com/shigechioyo/items/9b5a03ceead6e5ec87ec#django%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B" target="_blank">DjangoにPostgreSQLを適用する - Qiita</a>
 
 ## 使っていて困ったことと対処法
 ### ログが確認できない
-Docker無しでやっていた頃は、ターミナルでローカルサーバーを立ち上げてそこに表示されるエラーを見ていた。Docekrでやるようになって、``docker-compose up/start`` で立ち上げると実行中のエラーログなんかがそのままでは表示されず確認ができない。
+Docker無しでやっていた頃は、ターミナルでローカルサーバーを立ち上げてそこに表示されるエラーを見ていた。Docekrでやるようになって、``docker-compose up / start`` で立ち上げると実行中のエラーログなんかがそのままでは表示されず確認ができない。
 
-単純だった。Dockerコンテナ内ではログが出ているので、以下のコマンドを使うことでログを見ることができる。
+単純だった。Dockerコンテナ内ではログが出ているので、以下のコマンドを使うことでログを見ることができた。
 
 ```
 $ docker logs -t コンテナ名

@@ -4,7 +4,7 @@ title = "PengNote"
 copyright = "(c) 2018 PengNote"
 paginate = 3
 
-uglyURLs = true
+
 googleAnalytics = "UA-53106421-1"
 
 theme = "minimage"
