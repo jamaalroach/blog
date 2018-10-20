@@ -1,0 +1,208 @@
+---
+title: SPRING GARDEN ON FYAH!
+author: JR
+date: '2018-10-19'
+slug: hott
+categories: [Visualisation]
+tags: [Barbados, Visualisation]
+data: '2018-10-19T21:37:50-04:00'
+Summary: 'Charting Local Warming In Barbados'
+image: 'img/heatwave.jpg.'
+weight: 1
+FuzzyWordCount: true
+ReadingTime: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+
+```{r, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+library(plotly)
+library(extrafont)
+library(ggplot2)
+library(calibrate)
+
+
+```
+
+
+#The Question
+
+[Barbados](https://www.visitbarbados.org/) is hot. It was always hot, its a tropical paradise in the Caribbean its supposed to be hot but for Bajans, in recent times it feels  hotter than ever before.  The heat is oppressive , making a five minute walk at midday seem like a journey through hell and forget about driving with your window down to enjoy the breeze.
+
+This is no surprise, everyone knows the earth is getting warmer. Since 1901 and according to this report the warming is accelerating
+So the question isn't if it is getting hotter in Barbados, that is a definite yes. What I really ~~wanted~~ **needed** to know as i was sweating profusely watching Under-9 football one Saturday morning , was  what this increase looked like. And so,the idea for this post was born.
+Y
+
+
+
+
+# The Data
+
+I downloaded Barbados' monthly average temperature data from 1901 -2015 from the [The World Bank Climate Knowledge Portal](http://sdwebx.worldbank.org/climateportal/index.cfm?page=country_historical_climate&ThisRegion=Latin%20America&ThisCcode=BRB). Using this I created  aannual and decade variables which were used to create the charts.The source data file is avialable [here](https://gist.githubusercontent.com/jamaalroach/bc8e31c8756813ad485ec100d921dd25/raw/19d08c5a991afa9ad338ba0183fb6720faa9b5be/temp.csv) 
+
+
+```{r}
+tempsgist<-"https://gist.githubusercontent.com/jamaalroach/bc8e31c8756813ad485ec100d921dd25/raw/19d08c5a991afa9ad338ba0183fb6720faa9b5be/temp.csv"
+temps<-read.csv(tempsgist) #creating dataframe from souce csv
+names(temps) <- c("Temp", "Year", "Month","Country", "IOS3", "IOS2") # renaming dataframe columns
+
+yavg<-temps%>%group_by(Year)%>%summarise(AVgTemp=round(mean(Temp),2))  # dataframe with annual average temperatures
+
+davg<-yavg%>%mutate(decade=ifelse(Year<1910,1900,ifelse(Year<1920, 1910,ifelse(Year<1930,1920,ifelse(Year<1940,1930, ifelse(Year<1950,1940, ifelse(Year<1960,1950,ifelse(Year<1970,1960,ifelse(Year<1980,1970,ifelse(Year<1990,1980,ifelse(Year<2000,1990,ifelse(Year<2010,2000,2010)))))))))))) #dataframe with grouping by decades
+
+dec<-davg%>%group_by(decade)%>%summarise(avgtemp=round(mean(AVgTemp),1), maxtemp=round(max(AVgTemp),1), mintemp=round(min(AVgTemp),1)) #calculating maximum, average and and minimum temperature by decade
+
+dec<-dec%>%mutate(maxoff=maxtemp+0.1, minoff=mintemp-0.1)
+
+```
+
+
+#The Annual Trend
+
+
+So what's the best way to display 114 years of time series data? A line chart of course.
+
+**The chart is interactive, hover over a point for more detail**
+
+```{r}
+ chart1<-ggplot(yavg, aes(x=Year, y=AVgTemp))+geom_line(colour="coral", size=0.6)+theme(panel.grid = element_line(colour = "white"))+theme(axis.title.x = element_blank(), axis.ticks = element_line(color = "white"), axis.text = element_text(colour="gray59"))+geom_smooth()+theme(panel.background=element_rect(fill= "white"), plot.background = element_rect(fill="white"))+labs(y="Annual Average Temperature (°C)")+theme(axis.title.y = element_text(color="coral", face="bold"))
+
+
+
+chart1<-ggplotly(chart1)
+
+chart1
+
+
+
+
+```
+Simple and effective.
+
+There is a lot of fluctuation year over year but the upward trajectory is clear and it's highlighted it with a blue trend line.You can see the nnual temperature rissing gradually over the years until about 1970 where the increase accelerates.Pre 1970t the temperature increased by ... per decade whiel afeter 1970 teh increase was   per decade.
+
+
+
+
+#Decade Temperature Ranges
+
+
+Let's take a look at the decade view. In this chart I compared the range between the **<span style="color:steelblue">minimum</span>** and **<span style="color:red">maximum</span>** annual average temperatures observed by decade. 
+
+
+
+
+
+
+
+
+
+```{r}
+chartx<-ggplot(davg, aes(x=AVgTemp, y=decade, group=decade))+geom_point(aes(color=AVgTemp),pch=15, size=5)+scale_colour_gradient(low="steelblue",high="firebrick1")     +scale_y_continuous(trans = "reverse", labels=davg$decade, breaks = davg$decade)+theme(panel.background = element_rect(fill = "black"), panel.grid.minor = element_line(colour = "black", linetype = 3), panel.grid.major = element_line(colour = "black", linetype = 3))+theme(axis.text.x = element_blank(), axis.ticks = element_blank(),axis.title = element_blank(), legend.position = "top", legend.direction = "horizontal", legend.title = element_text(colour = "black"), legend.background = element_rect(fill = "black"), legend.text = element_text(colour = "white"))+ggtitle("Annual Average Temperature In Decades")+geom_hline(yintercept = c(1895,1905,1915,1925,1935,1945,1955,1965,1975,1985,1995,2005,2015), linetype=3, colour="gray60")+theme(plot.background = element_rect(fill="black"), axis.text.y = element_text(colour="white"),plot.title = element_text(colour = "white", hjust = 0.5))
+
+ chartx
+ 
+```
+
+
+
+```{r}
+chartxa<-ggplot(davg, aes(x=AVgTemp, y=decade, group=decade))+geom_point(aes(color=AVgTemp),pch=15, size=5)+scale_colour_gradient(low="steelblue",high="firebrick1")     +scale_y_continuous(trans = "reverse", labels=davg$decade, breaks = davg$decade)+theme(panel.background = element_rect(fill = "white"), panel.grid.minor = element_line(colour = "white", linetype = 3), panel.grid.major = element_line(colour = "white",linetype = 3))+theme (axis.text.x = element_blank(), axis.ticks = element_blank(),axis.title = element_blank(), legend.position = "top", legend.title = element_text(colour = "white"), legend.direction = "horizontal")+ggtitle("Annual Average Temperature In Decades" )+geom_hline(yintercept = c(1895,1905,1915,1925,1935,1945,1955,1965,1975,1985,1995,2005,2015), linetype=3, colour="black")+theme(plot.title = element_text( hjust = 0.5))
+chartxa
+
+```
+
+I think this is really useful in highlighting how much hotter the last three decades have been in comparison to the past.Although the 2010's havent quite reached the high of the 2000's (yet), its low is above the high of every decade preceeding the 80s and is only 0.1 degrees lower than the highs of the 80's and 90's.  
+
+Another point that jumps out is the really small range recorded in the 1900's.What could be the reason for that?
+
+# Temperature Anomalies
+
+The defines temperature anomlaies as:
+
+>The difference between the long term average temperature (baseline) and the temperature that actually occurs. A positive anomaly means that the temperature was warmer than normal; a negative anomaly indicates that the temperature was cooler than normal.
+
+For my baseline I used the average temperature for the 20th Century `rltavg$avg` and plotted the anomalies below.
+
+**The chart is interactive, hover over a point for more detail**
+
+```{r}
+ltavg<-yavg%>%filter(Year<2001)%>%summarise(avg=mean(AVgTemp)) #calculating 100 YEAR long term average using years 1901-2000
+
+stavg<-yavg%>%filter(Year>1984)%>%summarise(avg=mean(AVgTemp))
+
+yavg<-yavg%>%mutate(ltanomaly=AVgTemp-ltavg$avg, stanomaly=AVgTemp-stavg$avg) 
+
+yavg$ltcolour <- ifelse(yavg$ltanomaly < 0, "Cooler","Hotter") #creating variable used to assign colour for plotting in long term average chart
+
+yavg$stcolour <- ifelse(yavg$stanomaly < 0, "Cooler","Hotter") #creating variable used to assign colour for plotting in short term average chart
+
+chart2<-ggplot(yavg, aes(x=Year, y=ltanomaly))+geom_bar(stat ="identity",aes(fill=ltcolour))+scale_fill_manual(values=c(Hotter="firebrick1",Cooler="steelblue"))+theme(legend.title=element_blank(), legend.position="none")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())+theme(panel.background=element_rect(fill= "white"), plot.background = element_rect(fill="white"))+theme(axis.title.x = element_blank(), axis.ticks = element_line(color = "white"), axis.text = element_text(colour = "gray59"))+labs(y="Temperature Anomaly(°C)")+theme(axis.title.y = element_text(color = "firebrick1", face = "bold"))
+
+
+
+chart2
+
+```
+
+ As expected there were both cooler and hotter years during the period but whta is really of note is that the years since 1987 have all been ablve the long term average.
+
+```{r}
+
+
+chart5<- ggplot(yavg, aes(x=Year, y=stanomaly))+geom_bar(stat ="identity",aes(fill=stcolour))+scale_fill_manual(values=c(Hotter="firebrick1",Cooler="steelblue"))+labs(y="Temperature Anomaly (°C)")+theme_fivethirtyeight()+  theme(legend.title=element_blank(), legend.position="none")+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())+theme(plot.title = element_text(color = "gray", face="bold"))
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+#Warming Stripes 
+
+
+The header image for this post is an application of the very popular [Warming Stripes](http://www.climate-lab-book.ac.uk/2018/warming-stripes/) visualisation by Ed Hawkins.
+Each stripe represents a year with the colours being representiaive of the annual avearge temperature. 
+
+
+```{r}
+temp_cols <- rev(c('#67001f','#b2182b','#d6604d','#f4a582','#fddbc7',
+               '#d1e5f0','#92c5de','#4393c3','#2166ac','#053061'))
+chart3<-ggplot(yavg, aes(x = Year, y=AVgTemp, fill =AVgTemp)) +
+  geom_bar(position = "fill", stat = "identity")+
+  scale_y_continuous(expand = c(0, 0.01)) +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_fill_gradientn(colors = temp_cols, " ")+
+  labs(title = "Annual Average Temperature (°C) 1901-2015") +
+  theme_void() +  theme(text = element_text(color = "steelblue"),
+        legend.position = "bottom"
+        )
+
+chart3
+
+
+
+```
+Once again it shows that tempearture in Barbados continues to rise.
+
+
+#Conclusion
+
+This was a case of quanitfying / visualising the obvious.
+
+```
+
+
